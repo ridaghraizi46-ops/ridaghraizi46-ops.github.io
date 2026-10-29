@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;background:#14141a;color:#f3f3f7;font-family:"Segoe UI",Arial,sans-serif;position:relative;overflow:hidden}
+.glow{position:absolute;right:-120px;top:-160px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,#5b4bdb55,transparent 70%)}
+.wrap{position:absolute;left:72px;top:0;bottom:0;width:560px;display:flex;flex-direction:column;justify-content:center}
+.tag{font-size:22px;letter-spacing:.14em;color:#9d93f5;text-transform:uppercase;font-weight:600}
+h1{font-size:92px;line-height:1.02;margin:16px 0 22px;font-weight:800;letter-spacing:-.02em}
+h1 span{color:#8e82f0}
+p{font-size:30px;line-height:1.35;color:#c6c6d2;max-width:520px}
+.foot{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.pill{font-size:21px;padding:8px 16px;border:2px solid #3a3a48;border-radius:999px;color:#d8d8e2}
+.card{position:absolute;right:72px;top:60px;width:440px;background:#1f1f29;border:2px solid #3a3a48;border-radius:22px;padding:30px;box-shadow:0 30px 80px #0008}
+.bar{display:flex;gap:10px;margin-bottom:22px}
+.bar i{display:block;width:14px;height:14px;border-radius:50%;background:#3a3a48}
+.input{background:#14141a;border:2px solid #3a3a48;border-radius:12px;padding:14px 16px;font:22px Consolas,monospace;color:#8b8b99}
+.btn{margin-top:14px;background:#5b4bdb;border-radius:12px;padding:14px;text-align:center;font-size:24px;font-weight:700}
+.row{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;padding-top:18px;border-top:2px solid #2c2c38}
+.row small{font-size:20px;color:#9a9aa8}
+.row b{font-size:36px}
+.grid{position:absolute;right:72px;bottom:40px;width:440px;display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.grid u{display:block;aspect-ratio:1;border-radius:8px;background:#2a2a36}
+.grid u.on{background:#8e82f0}.grid u.mid{background:#5b4bdb}
+</style></head><body>
+<div class="glow"></div>
+<div class="wrap">
+ <div class="tag">Squeekchain tool</div>
+ <h1>Squeek<br><span>Viewer</span></h1>
+ <p>Look up any wallet's Squeeks and SQK balance, in one click.</p>
+ <div class="foot"><span class="pill">Sepolia testnet</span><span class="pill">Read-only</span><span class="pill">Open source</span></div>
+</div>
+<div class="card">
+ <div class="bar"><i></i><i></i><i></i><span style="margin-left:auto;font-size:18px;color:#7c7c8a">example data</span></div>
+ <div class="input">0x… wallet address</div>
+ <div class="btn">Look up</div>
+ <div class="row"><small>Squeeks owned</small><b>10</b></div>
+ <div class="row" style="margin-top:12px;border:0;padding-top:0"><small>SQK balance</small><b>128.5</b></div>
+</div>
+<div class="grid" id="g"></div>
+<script>
+const g=document.getElementById('g');const on=new Set([3,4,11,14,15,22,26,27,33,38,41,45,46,52,57,58,64,69,73]);
+for(let i=0;i<20;i++){const u=document.createElement('u');if(on.has(i))u.className='on';else if(i%7==0)u.className='mid';g.append(u)}
+</script></body></html>

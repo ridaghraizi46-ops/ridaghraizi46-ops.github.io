@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Squeek Viewer</title>
+  <meta name="description" content="Read-only lookup of a wallet's Squeeks and SQK balance on Squeekchain (Sepolia testnet).">
+  <style>
+    :root { color-scheme: light dark; --bg: #fafafa; --fg: #1a1a20; --muted: #5c5c66; --line: #d9d9e0; --accent: #5b4bdb; --err: #b3261e; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #15151a; --fg: #ececf1; --muted: #a0a0ad; --line: #33333d; --accent: #8e82f0; --err: #f2867f; } }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 640px; margin: 0 auto; padding: 32px 16px; }
+    h1 { margin: 0 0 4px; font-size: 1.6rem; }
+    p.lead { margin: 0 0 24px; color: var(--muted); }
+    form { display: flex; gap: 8px; flex-wrap: wrap; }
+    input { flex: 1 1 280px; padding: 10px; font: inherit; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: inherit; }
+    button { padding: 10px 18px; font: inherit; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer; }
+    #result { margin-top: 24px; overflow-wrap: anywhere; }
+    #result.error { color: var(--err); }
+    dt { color: var(--muted); font-size: .85rem; margin-top: 12px; }
+    dd { margin: 0; }
+    footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Squeek Viewer</h1>
+    <p class="lead">Look up how many Squeeks and how much SQK a wallet holds on <a href="https://docs.squeekchain.com">Squeekchain</a> (Sepolia testnet).</p>
+    <form id="form">
+      <input id="address" placeholder="0x… wallet address" autocomplete="off" spellcheck="false" aria-label="Wallet address">
+      <button type="submit">Look up</button>
+    </form>
+    <div id="result" aria-live="polite"></div>
+    <footer>
+      Read-only: it only reads public blockchain data. It never asks for a private key, never connects to your wallet and never sends a transaction.
+      Source: <a href="https://github.com/ridaghraizi46-ops/squeek-viewer">github.com/ridaghraizi46-ops/squeek-viewer</a>.
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
